@@ -55,7 +55,7 @@ class ThrustController extends Controller
     {
         $resource = Thrust::make($resourceName);
         request()->validate($resource->getValidationRules(null));
-        $resource->create(request()->all());
+        $resource->create(request()->except(['q','tickets_count']));
         return back()->withMessage(__('thrust::messages.created'));
     }
 
@@ -66,7 +66,7 @@ class ThrustController extends Controller
             request()->validate($resource->getValidationRules($id));
         }
 
-        $resource->update($id, request()->except('inline'));
+        $resource->update($id, request()->except(['inline', 'q', 'tickets_count']));
         return back()->withMessage(__('thrust::messages.updated'));
     }
 
