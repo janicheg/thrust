@@ -7,7 +7,7 @@ use Illuminate\Support\Collection;
 abstract class Action
 {
     public $needsConfirmation   = true;
-    public $confirmationMessage = 'Are you sure?';
+    public $confirmationMessage = 'Вы уверены?';
     public $title               = null;
     public $icon                = null;
     public $main                = false;
